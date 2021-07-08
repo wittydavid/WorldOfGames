@@ -1,5 +1,4 @@
 from shared_func import throw_error
-from Utils import SCORES_FILE_NAME
 
 
 def add_score(difficulty: int, score_file_name: str) -> int:
@@ -35,6 +34,3 @@ def add_score(difficulty: int, score_file_name: str) -> int:
             print(e.args)
             throw_error(f"An unexpected error has occurred while trying to access {score_file_name}")
     return 1
-
-
-add_score(1, SCORES_FILE_NAME)

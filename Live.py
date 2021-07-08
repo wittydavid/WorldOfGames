@@ -2,6 +2,8 @@ from MemoryGame import MemoryGame
 from GuessGame import GuessGame
 from CurrencyRouletteGame import CurrencyRouletteGame
 from shared_func import throw_error
+from Score import add_score
+from Utils import SCORES_FILE_NAME
 
 
 def get_user_number_input() -> int:
@@ -53,10 +55,10 @@ def run_game(game_pick, diff_pick):
         return curr_game.play(diff_pick)
 
 
-def load_game() -> tuple:
+def load_game() -> bool:
     """Function gets user inputs: game choice, difficulty level
 
-    :return: (game_choice, level_choice)
+    :return: True if player won, otherwise - False
     """
     print(f"""Please choose a game to play:
 \t1. Memory Game - a sequence of numbers will appear for 1 second and you have to
@@ -70,6 +72,10 @@ guess it back
         throw_error("Invalid input - number must be in 1-3 range")
     level_choice = get_user_number_input()
     if check_number_in_range(1, 5, level_choice):
-        return run_game(game_choice, level_choice)
+        if run_game(game_choice, level_choice):
+            add_score(level_choice, SCORES_FILE_NAME)
+            return True
+        else:
+            return False
     else:
         throw_error("Invalid input - number must be in 1-5 range")
