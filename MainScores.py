@@ -24,16 +24,16 @@ def get_score_from_file(score_file_name: str) -> int:
     except BaseException as e:
         print(e.args)
         throw_error(f"An unexpected error has occurred while trying to access {score_file_name}")
-    return -1
+    return BAD_RETURN_CODE
 
 
 app = Flask(__name__)
 
 
-@app.route('/score_server')
-def score_server():
+@app.route('/result')
+def result():
     current_score = get_score_from_file(SCORES_FILE_NAME)
-    return render_template('score_server.html', score=current_score)
+    return render_template('result.html', result=current_score)
 
 
 if __name__ == "__main__":

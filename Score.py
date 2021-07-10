@@ -1,4 +1,5 @@
 from shared_func import throw_error
+from Utils import BAD_RETURN_CODE
 
 
 def add_score(difficulty: int, score_file_name: str) -> int:
@@ -7,7 +8,7 @@ def add_score(difficulty: int, score_file_name: str) -> int:
 
     :param difficulty: game difficulty level
     :param score_file_name: score file name
-    :return: 0 if successful, 1 if failure
+    :return: 0 if successful, -1 (BAD_RETURN_CODE) if failure
     """
     try:
         score_file = open(score_file_name, mode='r+')
@@ -33,4 +34,4 @@ def add_score(difficulty: int, score_file_name: str) -> int:
         except BaseException as e:
             print(e.args)
             throw_error(f"An unexpected error has occurred while trying to access {score_file_name}")
-    return 1
+    return BAD_RETURN_CODE

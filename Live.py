@@ -3,7 +3,7 @@ from GuessGame import GuessGame
 from CurrencyRouletteGame import CurrencyRouletteGame
 from shared_func import throw_error
 from Score import add_score
-from Utils import SCORES_FILE_NAME
+from Utils import SCORES_FILE_NAME, BAD_RETURN_CODE
 
 
 def get_user_number_input() -> int:
@@ -73,8 +73,10 @@ guess it back
     level_choice = get_user_number_input()
     if check_number_in_range(1, 5, level_choice):
         if run_game(game_choice, level_choice):
-            add_score(level_choice, SCORES_FILE_NAME)
-            return True
+            if add_score(level_choice, SCORES_FILE_NAME) != BAD_RETURN_CODE:
+                return True
+            else:
+                throw_error("An Error has occurred while adding your score")
         else:
             return False
     else:
