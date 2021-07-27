@@ -30,6 +30,11 @@ def get_score_from_file(score_file_name: str) -> int:
 app = Flask(__name__)
 
 
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+
 @app.route('/result')
 def result():
     current_score = get_score_from_file(SCORES_FILE_NAME)

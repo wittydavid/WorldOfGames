@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Scores Game</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}WoG{% endblock %}
+{% block content %}
 {% if result == -1 %}
-<h1>
+<h2>
     <div id="error" style="color:red">ERROR</div>
-</h1>
+</h2>
 {% else %}
-<h1>The score is
+<h2>The score is
     <div id="score">{{result}}</div>
-</h1>
+</h2>
 {% endif %}
-</body>
-</html>
+{% endblock %}
