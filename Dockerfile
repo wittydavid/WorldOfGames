@@ -2,7 +2,7 @@ FROM python:3.9-alpine
 
 WORKDIR /app
 
-COPY MainScores.py shared_func.py Utils.py scores.txt flask_app_req/requirements.txt .
+COPY MainScores.py shared_func.py Utils.py scores.txt flask_app_req/requirements.txt ./
 
 COPY templates templates
 
