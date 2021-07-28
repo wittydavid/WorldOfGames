@@ -1,3 +1,4 @@
 CurrencyConverter
 requests
 flask
+selenium
