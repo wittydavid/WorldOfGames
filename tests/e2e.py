@@ -63,3 +63,4 @@ main_function()
 # todo 1. solve driver location dependency
 # todo 2. check the difference between driver close and quit
 # todo 3. solve getting to url using gcp
+# todo 4. clean up aws configuration and installation from this venv and project
