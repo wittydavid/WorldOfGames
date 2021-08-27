@@ -12,7 +12,6 @@ pipeline {
         sh 'ls -ltr'
       }
     }
-
     stage('-- Install docker compose in container --') {
       steps {
         sh 'sudo curl -L --fail https://github.com/docker/compose/releases/download/1.29.2/run.sh -o /usr/local/bin/docker-compose'
